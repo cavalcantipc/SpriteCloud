@@ -1,0 +1,37 @@
+name: Newman Run
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+ 
+    strategy:
+      matrix:
+        node-version: [16.x]
+ 
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}      
+        uses: actions/setup-node@v1
+       
+      - name: Install newman
+        run: |
+         npm install -g newman
+         npm install -g newman-reporter-htmlextra
+ 
+ 
+      - name: Make Directory for Test Results
+        run: mkdir -p testArtifacts
+ 
+
+      - name: Run Postman Collection        
+        run: newman run APITests/APITests.postman_collection.json --global-var "base_url=https://petstore.swagger.io/v2" --suppress-exit-code -r htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html 
+          
+      - name: Output the results
+        uses: actions/upload-artifact@v2
+        with:
+         name: Reports
+         path: testArtifacts
