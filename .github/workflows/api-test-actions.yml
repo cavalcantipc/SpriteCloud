@@ -28,7 +28,7 @@ jobs:
  
 
       - name: Run Postman Collection        
-        run: newman run APITests/APITests.postman_collection.json --global-var "base_url=https://petstore.swagger.io/v2" --suppress-exit-code -r htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html 
+        run: newman run APITests/APITests.postman_collection.json --global-var "base_url=https://petstore.swagger.io/v2" --suppress-exit-code -r htmlextra,json --reporter-htmlextra-export testArtifacts/htmlreport.html --reporter-json-export testArtifacts/jsonreport.json 
           
       - name: Output the results
         uses: actions/upload-artifact@v2
