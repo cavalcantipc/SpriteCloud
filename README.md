@@ -67,3 +67,8 @@ To cover alternative scenarios it would be interesting using different test appr
 For API tets, the next steps would also be to cover the entire application, but in this case, we could also test alternative scenarios as invalid data, errors and so on.
 
 # Calliope.pro
+# Improvement point
+As an improvement point, I suggest it was possible to see information about more reports on the profile overview, like the last 3 or 5 and user could switch between them. It is only possible to see the last report, in my case I uploaded 2 reports of differnt kinds, I think it would be interesting if I could see the other one.
+
+# New Feature
+As a new feature, I believe it would be interesting to have a place to list the bugs found during test executions.
